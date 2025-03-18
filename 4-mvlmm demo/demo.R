@@ -1,4 +1,7 @@
 
+# Distilled from original tutorial by BB
+# https://mac-theobio.github.io/QMEE/lectures/MultivariateMixed.notes.html
+
 # 1. Setup
 
 pacman::p_load(tidyverse, magrittr, lme4, lmerTest, DHARMa, broom.mixed, corrplot, dotwhisker)
