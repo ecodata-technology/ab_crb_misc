@@ -61,3 +61,8 @@ corrplot.mixed(cov2cor(vv$Individual),upper="ellipse")
 # 6. Look at residuals
 
 res = DHARMa::simulateResiduals(m, plot = T)
+
+
+# 7. Back-transform scaling from scale()
+
+# d$s.x * attr(d$s.x, 'scaled:scale') + attr(d$s.x, 'scaled:center')
