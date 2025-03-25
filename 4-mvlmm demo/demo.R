@@ -38,6 +38,11 @@ m = lmer(
     )
   )
 
+# failure to converge nor surprising as fes are highly correlated
+
+vv = VarCorr(m)
+corrplot.mixed(cov2cor(vv$Individual),upper="ellipse")
+
 summary(m)
 
 
@@ -55,17 +60,11 @@ dwplot(m_tidied) + facet_wrap(~fixeff, scale = "free", ncol = 2)+
   scale_y_discrete(labels=sort(unique(m_tidied$response_name), decreasing=T))
 
 
-# 5. Look at correlations
-
-vv = VarCorr(m)
-corrplot.mixed(cov2cor(vv$Individual),upper="ellipse")
-
-
-# 6. Look at residuals
+# 5. Look at residuals
 
 res = DHARMa::simulateResiduals(m, plot = T)
 
 
-# 7. Back-transform scaling from scale()
+# 6. Back-transform scaling from scale()
 
 # d$s.x * attr(d$s.x, 'scaled:scale') + attr(d$s.x, 'scaled:center')
